@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "Github-Downloader",
+    "version": "1.0.0",
+    "description": "Download files from github with ease",
+    "action": {
+      "default_popup": "index.html"
+    }
+  }
+  
