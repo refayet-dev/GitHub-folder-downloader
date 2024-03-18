@@ -5,29 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <title>Github:Folder-Downloader</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
+    <img src="./images/backgroundImage.jpg" alt="background" class="backgroundImage">
+    <div class="main">
+        <div class="main-content">
+            <h1 class="title">Github Folder Downloader</h1>
 
-    <div class="main-content">
-        <h1 class="title">Github Folder Downloader</h1>
+            <form class="form">
+                <input type="url" name="repoUrl" id="repoUrl" placeholder="Enter GitHub Repository URL or Folder Path"
+                    class="inputData" required>
+                <button type="submit" class="button">Get Files</button>
+            </form>
+            <div class="fileOutput"> </div>
+        </div>
 
-        <form class="form">
-            <input type="url" name="repoUrl" id="repoUrl" placeholder="Enter Repository URL or Folder Path" class="inputData" required>
-            <button type="submit" class="button">Download</button>
-        </form>
-        <div class="fileOutput"> </div>
+
+        <footer>
+            <div class="footer-container">
+                <p> All Rights Reserved to <a target="_blank" href="https://www.linkedin.com/in/refayet-siddique/" class="myDesCription">Refayet</a> 2024</p>
+                <p>Waiting for your 'Hi'<a class="socialMedia fb" target="_blank" href="https://www.facebook.com/Rifat.siddque">My Facebook</a><a class="socialMedia lkdin" target="_blank" href="https://www.linkedin.com/in/refayet-siddique/">My LinkedIn</a></p>
+        </footer>
     </div>
-
-
-    <footer class="py-2">
-        <div class="footer-container">
-        <p> Created by <a target="_blank" href="https://www.facebook.com/Rahim72446" class="myDesCription">Abdur Rahim</a> 2024</p>
-    </footer>
     <script type="module" src="./script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js"></script>
 
 </body>
+
 </html>
