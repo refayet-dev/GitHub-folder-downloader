@@ -1,6 +1,5 @@
-export const downloadFolder = async (repoUrl) => {
-    // console.log(repoUrl.value);
-    const url = new URL(repoUrl.value);
+export const downloadFolderProcess = async (gitRepoUrl) => {
+    const url = new URL(gitRepoUrl.value);
     const pathname = url.pathname;
     const pathParts = pathname.split('/');
     const username = pathParts[1];
@@ -30,7 +29,6 @@ export const downloadFolder = async (repoUrl) => {
     const blobUrl = URL.createObjectURL(content);
     const link = document.createElement('a');
     link.href = blobUrl;
-    // download name repo and folder name taken last part of the folder path
     link.download = `${repo}-${folderPath.split('/').pop()}.zip`;
     link.click();
     link.remove();
