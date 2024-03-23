@@ -4,6 +4,13 @@ const input = document.querySelector('form input');
 
 export const fileDisplay = async (gitRepoUrl) => {
     try {
+
+        const URL_PARAMS = new URLSearchParams(window.location.search);
+        const TOKEN = URL_PARAMS.get('token');
+        const encodedAccessToken = encodeURIComponent(TOKEN);
+        const headers = {
+            Authorization: `Bearer ${encodedAccessToken}`,
+        };
         const url = new URL(gitRepoUrl);
         const pathname = url.pathname;
         const pathParts = pathname.split('/');
@@ -11,11 +18,25 @@ export const fileDisplay = async (gitRepoUrl) => {
         const repo = pathParts[2];
         const folderPath = pathParts.slice(5).join('/');
         const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${folderPath}`;
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        console.log(data);
-        let content=
-        `
+        console.debug(apiUrl);
+
+        const response = await axios.get(apiUrl, {
+            headers: {
+                'Authorization': `token ${encodedAccessToken}`,
+                ...headers
+            },
+        });
+
+        const rateLimitLimit = response.headers.get('X-RateLimit-Limit');
+        const rateLimitRemaining = response.headers.get('X-RateLimit-Remaining');
+        const rateLimitReset = response.headers.get('X-RateLimit-Reset');
+        console.log(`Rate Limit Limit: ${rateLimitLimit}`);
+        console.log(`Rate Limit Remaining: ${rateLimitRemaining}`);
+        console.log(`Rate Limit Reset: ${rateLimitReset}`);
+        const data = response.data;
+        console.debug(data);
+        let content =
+            `
         <div class='fileOutputContainer'>
                 <div class='fileOutputHeader'>
                         <div class="text-content-container">
@@ -103,19 +124,20 @@ export const fileDisplay = async (gitRepoUrl) => {
         fileOutput.insertAdjacentHTML('beforeend', content);
 
     } catch (error) {
-        alert('Invalid URL! Please enter a valid repository URL');
+        console.error(`Error fetching repository: ${error.response.status} ${error.response.statusText}`);
+        document.querySelector('.alert-container').style.display = 'block';
     }
 };
 
-document.body.addEventListener('click', async(e) => {
+document.body.addEventListener('click', async (e) => {
     if (e.target.id === 'gitDown') {
         await downloadFolderProcess(gitRepoUrl);
-    }else if (e.target.id === 'folderDetails') {
+    } else if (e.target.id === 'folderDetails') {
         e.preventDefault();
         const folderUrl = e.target.href;
         await fileDisplay(folderUrl);
         input.value = folderUrl;
-    }else if (e.target.id === 'backFolder') {
+    } else if (e.target.id === 'backFolder') {
         e.preventDefault();
         const url = new URL(input.value);
         const pathname = url.pathname;
@@ -128,7 +150,7 @@ document.body.addEventListener('click', async(e) => {
         const folderUrl = `https://github.com${folderPath}`;
         await fileDisplay(folderUrl);
         input.value = folderUrl;
-    }else if (e.target.id === 'rawFileDownload') {
+    } else if (e.target.id === 'rawFileDownload') {
         e.preventDefault();
         const fileUrl = e.target.href;
         const response = await fetch(fileUrl);

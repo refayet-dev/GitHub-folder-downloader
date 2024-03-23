@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Github-Downloader",
+    "name": "GDMr",
     "version": "1.0.0",
     "description": "Download files from github with ease",
     "action": {
