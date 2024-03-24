@@ -4,8 +4,7 @@
     "builds": [
         {
             "src": "./script.js",
-            "use": "@vercel/node",
-            "config": { "zeroConfig": true }
+            "use": "@now/static-build"
         }
     ],
     "routes": [
