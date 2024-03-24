@@ -3,7 +3,7 @@
     "name": "GDM",
     "builds": [
         {
-            "src": "./static/index.html",
+            "src": "./package.json",
             "use": "@vercel/static-build",
             "config": { 
                 "distDir": "./static",
