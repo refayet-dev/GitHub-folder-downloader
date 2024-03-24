@@ -3,7 +3,7 @@
     "name": "GDM",
     "builds": [
         {
-            "src": "./static/index.html",
+            "src": "./script.js",
             "use": "@vercel/node",
             "config": { "zeroConfig": true }
         }
