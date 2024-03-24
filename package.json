@@ -5,6 +5,6 @@
     "express": "^4.19.1"
   },
   "scripts": {
-    "build": "vercel-build"
+    "build": "node script.js"
   }
 }
