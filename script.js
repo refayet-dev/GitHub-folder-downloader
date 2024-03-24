@@ -8,7 +8,8 @@ const app = express();
 app.use(express.static('static'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/static/index.html'));
+  res.status(200).send('Hello, world!')
+  // res.sendFile(path.join(__dirname, '/static/index.html'));
 });
 
 
