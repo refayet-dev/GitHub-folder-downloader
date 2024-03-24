@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "name": "GDM",
+    "builds": [
+        {
+            "src": "./static/index.html",
+            "use": "@vercel/node",
+            "config": { "zeroConfig": true }
+        }
+    ],
+    "routes": [
+        { "src": "/(.*)", "dest": "/index.html" }
+    ]
+}
