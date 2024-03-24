@@ -3,11 +3,16 @@
     "name": "GDM",
     "builds": [
         {
-            "src": "./package.json",
-            "use": "@now/static-build"
+            "src": "./static/index.html",
+            "use": "@vercel/static-build",
+            "config": { 
+                "distDir": "./static",
+                "buildCommand": "npm run build",
+                "outputDirectory": "dist"
+             }
         }
     ],
     "routes": [
-        { "src": "/(.*)", "dest": "/" }
+        { "src": "/(.*)", "dest": "./static/index.html" }
     ]
 }
