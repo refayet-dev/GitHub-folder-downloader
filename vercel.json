@@ -3,14 +3,14 @@
   "name": "GDM",
   "builds": [
     {
-      "src": "script.js",
+      "src": "script.cjs",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "script.js"
+      "dest": "script.cjs"
     }
   ]
 }

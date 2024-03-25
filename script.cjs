@@ -1,4 +1,10 @@
+// import express from 'express';
+// import path from 'path';
+// import axios from 'axios';
+// import dotenv from 'dotenv';
+
 require("dotenv").config();
+// dotenv.config();
 const axios = require("axios");
 const express = require("express");
 const path = require("path");
@@ -35,5 +41,6 @@ app.get("/oauth-callback", ({ query: { code } }, res) => {
 
 const port = 5000 || process.env.PORT;
 app.listen(port);
+console.log(`App listening on port ${port}`);
 // eslint-disable-next-line no-console
 // console.log('App listening on port 3000');
