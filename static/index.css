@@ -6,364 +6,320 @@ body {
     position: relative;
     overflow: auto;
     font-family: 'raleway', sans-serif;
-
-    .backgroundImage {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-    }
-
-    .main {
-        width: 100%;
-        height: 100%;
-
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-
-            .title {
-                font-family: "Raleway", sans-serif;
-                margin: 0;
-                font-size: clamp(3rem, 7vw, 8rem);
-                font-weight: 700;
-                text-align: center;
-                -webkit-text-fill-color: lightyellow;
-                -webkit-text-stroke-color: darkgreen;
-                -webkit-text-stroke-width: 1.5px;
-            }
-            .popup-container{
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                backdrop-filter: blur(5px);
-                z-index: 9998;
-                display: none;
-                .popup{
-                    background: #c4c6ff;
-                    width: 70vw;
-                    padding: 10px 35px;
-                    border: 2px solid #fff;
-                    border-radius: 20px/50px;
-                    background-clip: padding-box;
-                    color: #000;
-                    font-size: 18px;
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -293px);
-                    box-shadow: rgb(12 255 4 / 25%) 0px 50px 100px -20px, rgb(100 234 23 / 30%) 0px 30px 60px -30px, rgb(39 216 17 / 35%) 0px -2px 6px 0px inset;
-                    z-index: 9999;
-                }
-            }
-            .popup-container.authorized{
-                display: block;
-            }
-            .alert-container{
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                backdrop-filter: blur(5px);
-                z-index: 9988;
-                display: none;
-                .alertBox{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    background: #dcff0ccc;
-                    width: 70vw;
-                    padding: 10px 35px;
-                    border: 2px solid #fff;
-                    border-radius: 50px;
-                    background-clip: padding-box;
-                    color: #000;
-                    font-size: 18px;
-                    position: fixed;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -293px);
-                    box-shadow: rgb(12 255 4 / 25%) 0px 50px 100px -20px, rgb(100 234 23 / 30%) 0px 30px 60px -30px, rgb(39 216 17 / 35%) 0px -2px 6px 0px inset;
-                    z-index: 9989;
-                    .errorImage{
-                        height: 50px;
-                        margin: 0 auto;
-                        width: 100%;
-                    }
-                    .invalid-title{
-                        text-align: center;
-                        color: #880000;
-                        margin: 10px 0;
-                    }
-                    .reasonList{
-                        font-weight: 600;
-                        margin: 10px 0;
-                    }
-                    .closeAlert{
-                        width: 40%;
-                        align-self: center;
-                        padding: 0.5rem;
-                        border-radius: 0.25rem;
-                        color: #ffffff;
-                        background-color: #103d05;
-                        font-size: 20px;
-                        border: 2px solid #103d05;
-                        cursor: pointer;
-                        margin: 5px 10px 0;
-                        text-decoration: none;
-                        text-align: center;
-                        font-weight: 600;
-                    }
-                }
-            }
-
-            .form {
-                display: flex;
-                margin: 2rem 0;
-                flex-direction: column;
-                gap: 1rem;
-                justify-content: center;
-
-                @media (min-width: 768px) {
-                    flex-direction: row;
-                }
-
-                .inputData {
-                    padding: 1rem;
-                    border-radius: 0.25rem;
-                    border-width: 10px;
-                    border-color: #4078a4;
-                    margin: 0 10px;
-
-                    @media (min-width: 768px) {
-                        width: 50%;
-                    }
-                }
-
-                .inputData:focus-visible {
-                    outline: none;
-                }
-
-                .button {
-                    padding: 1.25rem;
-                    border-radius: 0.25rem;
-                    color: #ffffff;
-                    background-color: #34286e;
-                    font-size: 18px;
-                    border: 2px solid #34286e;
-                    cursor: pointer;
-                    margin: 0 10px;
-                    text-decoration: none;
-                    text-align: center;
-                    font-weight: 600;
-                }
-            }
-
-        }
-
-        .main-content.hidden {
-            display: none;
-        }
-
-        .fileOutput {
-            .fileOutputContainer {
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-
-                .fileOutputHeader {
-                    height: 30%;
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    overflow: hidden;
-
-                    .text-content-container {
-                        max-width: 400px;
-                        padding: 3rem;
-                        background: #616161;
-                        --notchSize: 110px;
-                        clip-path: polygon(0% var(--notchSize),
-                                var(--notchSize) 0%,
-                                calc(100% - var(--notchSize)) 0%,
-                                100% var(--notchSize),
-                                100% calc(100% - var(--notchSize)),
-                                calc(100% - var(--notchSize)) 100%,
-                                var(--notchSize) 100%,
-                                0% calc(100% - var(--notchSize)));
-
-                        .textContent {
-                            font-size: 18px;
-                            font-weight: 700;
-                            text-align: center;
-                            -webkit-text-fill-color: #000000;
-                            margin: 15px 0;
-                        }
-                    }
-
-                    .backButton-container {
-
-                        .backFolder {
-                            padding: 1rem;
-                            border-radius: 0.25rem;
-                            color: #ffffff;
-                            background-color: #34286e;
-                            font-size: 14px;
-                            border: 1px solid #34286e;
-                            cursor: pointer;
-                        }
-                    }
-                }
-
-                .table-content-container {
-                    height: 70%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-
-                    .table-container {
-                        display: flex;
-                        overflow: auto;
-                        position: relative;
-                        flex-direction: column;
-                        border-radius: 0.75rem;
-                        width: 100%;
-                        height: 100%;
-                        color: #ffffff;
-                        background-clip: border-box;
-                        background-color: #1c9fed40;
-                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-
-                        .table {
-                            width: 100%;
-                            min-width: max-content;
-                            text-align: left;
-                            table-layout: auto;
-
-                            .th-1 {
-                                padding: 1rem;
-                                font-size: 1rem;
-                                font-weight: 400;
-                                opacity: 1;
-                            }
-
-                            .th-2 {
-                                padding: 1rem;
-                                .th-2-fileContent {
-                                    display: block;
-                                    font-size: 1rem;
-                                    font-weight: 400;
-                                    opacity: 1;
-                                }
-                            }
-
-                            .tbody-td {
-                                padding: 1rem;
-                                .tbody-td-content {
-                                    display: block;
-                                    font-size: 1rem;
-                                    font-weight: 400;
-                                }
-
-                                .tbody-td-content-link {
-                                    padding: 1rem;
-                                    text-align: center;
-                                    border-radius: 0.25rem;
-                                    color: #ffffff;
-                                    background-color: #34286e;
-                                    font-size: 1rem;
-                                    border: 1px solid #34286e;
-                                    cursor: pointer;
-                                    text-decoration: none;
-                                    width: auto;
-                                    display: block;
-                                }
-                            }
-
-                        }
-                    }
-
-                    .downloadAll {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        align-items: center;
-                        padding: 0.5rem 0;
-                        .text-center.font-bold{
-                            margin: 0;
-                            padding: 0 0 10px;
-                        }
-
-                        .downloadAllButton {
-                            padding: 1rem;
-                            text-align: center;
-                            border-radius: 0.25rem;
-                            color: #ffffff;
-                            background-color: #34286e;
-                            font-size: 1rem;
-                            border: 1px solid #34286e;
-                            cursor: pointer;
-                            text-decoration: none;
-                            width: auto;
-                            display: block;
-                        }
-                    }
-                }
-            }
-
-
-        }
-
-        .fileOutput.show {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-            height: calc(100% - var(--footerHeight));
-        }
-
-        footer {
-            padding: 1rem 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background-color: black;
-
-
-            .footer-container {
-                text-align: center;
-                color: #ffffff;
-            }
-
-            .myDesCription {
-                font-weight: 700;
-                text-align: center;
-                color: transparent;
-                background-clip: text;
-                background-color: darkgreen;
-            }
-
-            .socialMedia {
-                text-decoration: none;
-                padding-left: 5px;
-                color: aqua;
-            }
-
-            .socialMedia.fb {
-                padding-right: 5px;
-            }
-        }
-    }
+}
+body .backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+body .main {
+    width: 100%;
+    height: 100%;
+}
+body .main .main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+body .main .main-content .title {
+    font-family: "Raleway", sans-serif;
+    margin: 0;
+    font-size: clamp(3rem, 7vw, 8rem);
+    font-weight: 700;
+    text-align: center;
+    -webkit-text-fill-color: lightyellow;
+    -webkit-text-stroke-color: darkgreen;
+    -webkit-text-stroke-width: 1.5px;
+}
+body .main .main-content .popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 9998;
+    display: none;
+}
+body .main .main-content .popup-container .popup {
+    background: #c4c6ff;
+    width: 70vw;
+    padding: 10px 35px;
+    border: 2px solid #fff;
+    border-radius: 20px/50px;
+    background-clip: padding-box;
+    color: #000;
+    font-size: 18px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -293px);
+    box-shadow: #000 0px 50px 100px -20px, #000 0px 30px 60px -30px, #000 0px -2px 6px 0px inset;
+    z-index: 9999;
+}
+body .main .main-content .popup-container.authorized {
+    display: block;
+}
+body .main .main-content .alert-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 9988;
+    display: none;
+}
+body .main .main-content .alert-container .alertBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #dcff0c cc;
+    width: 70vw;
+    padding: 10px 35px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    background-clip: padding-box;
+    color: #000;
+    font-size: 18px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -293px);
+    box-shadow: #000 0px 50px 100px -20px, #000 0px 30px 60px -30px, #000 0px -2px 6px 0px inset;
+    z-index: 9989;
+}
+body .main .main-content .alert-container .alertBox .errorImage {
+    height: 50px;
+    margin: 0 auto;
+    width: 100%;
+}
+body .main .main-content .alert-container .alertBox .invalid-title {
+    text-align: center;
+    color: #800;
+    margin: 10px 0;
+}
+body .main .main-content .alert-container .alertBox .reasonList {
+    font-weight: 600;
+    margin: 10px 0;
+}
+body .main .main-content .alert-container .alertBox .closeAlert {
+    width: 40%;
+    align-self: center;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color: #103d05;
+    font-size: 20px;
+    border: 2px solid #103d05;
+    cursor: pointer;
+    margin: 5px 10px 0;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+}
+body .main .main-content .form {
+    display: flex;
+    margin: 2rem 0;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+}
+@media (min-width: 768px) {
+    body .main .main-content .form {
+        flex-direction: row;
+   }
+}
+body .main .main-content .form .inputData {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border-width: 10px;
+    border-color: #4078a4;
+    margin: 0 10px;
+}
+@media (min-width: 768px) {
+    body .main .main-content .form .inputData {
+        width: 50%;
+   }
+}
+body .main .main-content .form .inputData:focus-visible {
+    outline: none;
+}
+body .main .main-content .form .button {
+    padding: 1.25rem;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color: #34286e;
+    font-size: 18px;
+    border: 2px solid #34286e;
+    cursor: pointer;
+    margin: 0 10px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+}
+body .main .main-content.hidden {
+    display: none;
+}
+body .main .fileOutput .fileOutputContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+body .main .fileOutput .fileOutputContainer .fileOutputHeader {
+    height: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+body .main .fileOutput .fileOutputContainer .fileOutputHeader .text-content-container {
+    max-width: 400px;
+    padding: 3rem;
+    background: #616161;
+    --notchSize: 110px;
+    clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
+}
+body .main .fileOutput .fileOutputContainer .fileOutputHeader .text-content-container .textContent {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    -webkit-text-fill-color: #000;
+    margin: 15px 0;
+}
+body .main .fileOutput .fileOutputContainer .fileOutputHeader .backButton-container .backFolder {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color: #34286e;
+    font-size: 14px;
+    border: 1px solid #34286e;
+    cursor: pointer;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .table-container {
+    display: flex;
+    overflow: auto;
+    position: relative;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-clip: border-box;
+    background-color: #1c9fed 40;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .table-container .table {
+    width: 100%;
+    min-width: max-content;
+    text-align: left;
+    table-layout: auto;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .table-container .table .th-1 {
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 1;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .table-container .table .th-2 {
+    padding: 1rem;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .table-container .table .th-2 .th-2-fileContent {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 1;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .table-container .table .tbody-td {
+    padding: 1rem;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .table-container .table .tbody-td .tbody-td-content {
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .table-container .table .tbody-td .tbody-td-content-link {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color: #34286e;
+    font-size: 1rem;
+    border: 1px solid #34286e;
+    cursor: pointer;
+    text-decoration: none;
+    width: auto;
+    display: block;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .downloadAll {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .downloadAll .text-center.font-bold {
+    margin: 0;
+    padding: 0 0 10px;
+}
+body .main .fileOutput .fileOutputContainer .table-content-container .downloadAll .downloadAllButton {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.25rem;
+    color: #fff;
+    background-color: #34286e;
+    font-size: 1rem;
+    border: 1px solid #34286e;
+    cursor: pointer;
+    text-decoration: none;
+    width: auto;
+    display: block;
+}
+body .main .fileOutput.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - var(--footerHeight));
+}
+body .main footer {
+    padding: 1rem 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+}
+body .main footer .footer-container {
+    text-align: center;
+    color: #fff;
+}
+body .main footer .myDesCription {
+    font-weight: 700;
+    text-align: center;
+    color: transparent;
+    background-clip: text;
+    background-color: darkgreen;
+}
+body .main footer .socialMedia {
+    text-decoration: none;
+    padding-left: 5px;
+    color: aqua;
+}
+body .main footer .socialMedia.fb {
+    padding-right: 5px;
 }
