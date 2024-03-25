@@ -18,8 +18,6 @@ export const fileDisplay = async (gitRepoUrl) => {
         const repo = pathParts[2];
         const folderPath = pathParts.slice(5).join('/');
         const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${folderPath}`;
-        console.debug(apiUrl);
-
         const response = await axios.get(apiUrl, {
             headers: {
                 'Authorization': `token ${encodedAccessToken}`,
@@ -34,7 +32,6 @@ export const fileDisplay = async (gitRepoUrl) => {
         console.log(`Rate Limit Remaining: ${rateLimitRemaining}`);
         console.log(`Rate Limit Reset: ${rateLimitReset}`);
         const data = response.data;
-        console.debug(data);
         let content =
             `
         <div class='fileOutputContainer'>

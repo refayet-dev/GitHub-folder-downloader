@@ -1,5 +1,4 @@
 export const downloadFolderProcess = async (gitRepoUrl) => {
-    console.log(gitRepoUrl, 'fettttsss');
     const URL_PARAMS = new URLSearchParams(window.location.search);
     const TOKEN = URL_PARAMS.get('token');
     const url = new URL(gitRepoUrl.value);
@@ -10,7 +9,6 @@ export const downloadFolderProcess = async (gitRepoUrl) => {
 
     const folderPath = pathParts.slice(5).join('/');
     const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${folderPath}`;
-    // console.debug(apiUrl);
     const response = await fetch(apiUrl, {
         headers: {
             Authorization: `Bearer ${TOKEN}`,

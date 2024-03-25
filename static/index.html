@@ -11,14 +11,10 @@
         rel="stylesheet">
     <title>GDM</title>
     <link rel="icon" href="images/logo.png" type="image/x-icon">
-    <!-- <base href="/"> -->
-    <!-- <link rel="stylesheet" href="/index.css"> -->
     <link rel="stylesheet" type="text/css" href="/index.css">
     <script type="module" src="/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- <script type="module" src="/utils/fileDisplay.js"></script>
-    <script type="module" src="/utils/downloadFolderProcess.js"></script> -->
 </head>
 
 <body>
@@ -59,9 +55,7 @@
             
                    
             <form class="form">
-                <input name="gitRepoUrl" id="gitRepoUrl" placeholder="Enter GitHub Repository URL or Folder Path"
-                    class="inputData" type="url" required>
-                <!-- <button type="submit" class="button">Get Files</button> -->
+                <input name="gitRepoUrl" id="gitRepoUrl" placeholder="Enter GitHub Repository URL or Folder Path" class="inputData" type="url" required>
                 <a class="button unauthorized" href="/auth">Get Files</a>
                 <button type="submit" class="button authorized" style="display: none">Get Files</button>
             </form>
