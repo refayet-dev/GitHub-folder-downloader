@@ -38,6 +38,7 @@ app.get('/oauth-callback', ({ query: { code } }, res) => {
 
 
 
-app.listen(3000);
+const port= 5000 || process.env.PORT;
+app.listen(port);
 // eslint-disable-next-line no-console
-console.log('App listening on port 3000');
+// console.log('App listening on port 3000');
