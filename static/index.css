@@ -82,7 +82,7 @@ body .main .main-content .alert-container .alertBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: #dcff0c cc;
+    background: #dcff0ccc;
     width: 70vw;
     padding: 10px 35px;
     border: 2px solid #fff;
