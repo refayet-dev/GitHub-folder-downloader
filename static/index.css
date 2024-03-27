@@ -223,6 +223,7 @@ body .main .fileOutput .fileOutputContainer .table-content-container .table-cont
     background-clip: border-box;
     background-color: #1c9fed40;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(22.549999237060547px);
 }
 body .main .fileOutput .fileOutputContainer .table-content-container .table-container .table {
     width: 100%;
