@@ -120,7 +120,7 @@ body .main .main-content .alert-container .alertBox .closeAlert {
     background-color: #103d05;
     font-size: 20px;
     border: 2px solid #103d05;
-    cursor: pointer;
+    cursor: pointer !important;
     margin: 5px 10px 0;
     text-decoration: none;
     text-align: center;
@@ -160,7 +160,7 @@ body .main .main-content .form .button {
     background-color: #34286e;
     font-size: 18px;
     border: 2px solid #34286e;
-    cursor: pointer;
+    cursor: pointer !important;
     margin: 0 10px;
     text-decoration: none;
     text-align: center;
@@ -202,7 +202,7 @@ body .main .fileOutput .fileOutputContainer .fileOutputHeader .backButton-contai
     background-color: #34286e;
     font-size: 14px;
     border: 1px solid #34286e;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 body .main .fileOutput .fileOutputContainer .table-content-container {
     height: 70%;
@@ -221,7 +221,7 @@ body .main .fileOutput .fileOutputContainer .table-content-container .table-cont
     height: 100%;
     color: #fff;
     background-clip: border-box;
-    background-color: #1c9fed 40;
+    background-color: #1c9fed40;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 body .main .fileOutput .fileOutputContainer .table-content-container .table-container .table {
@@ -261,7 +261,7 @@ body .main .fileOutput .fileOutputContainer .table-content-container .table-cont
     background-color: #34286e;
     font-size: 1rem;
     border: 1px solid #34286e;
-    cursor: pointer;
+    cursor: pointer !important;
     text-decoration: none;
     width: auto;
     display: block;
@@ -285,7 +285,7 @@ body .main .fileOutput .fileOutputContainer .table-content-container .downloadAl
     background-color: #34286e;
     font-size: 1rem;
     border: 1px solid #34286e;
-    cursor: pointer;
+    cursor: pointer !important;
     text-decoration: none;
     width: auto;
     display: block;
