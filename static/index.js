@@ -39,6 +39,7 @@ button.addEventListener("click", async (e) => {
     document.querySelector(".alert-container").style.display = "block";
     return;
   }
+  console.log(getRepoUrl);
   document.querySelector(".main-content").classList.add("hidden");
   document.querySelector(".fileOutput").classList.add("show");
   await fileDisplay(gitRepoUrl);
