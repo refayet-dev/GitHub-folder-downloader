@@ -151,6 +151,8 @@ export const fileDisplay = async (gitRepoUrl) => {
         `;
     fileOutput.innerHTML = "";
     fileOutput.insertAdjacentHTML("beforeend", content);
+    document.querySelector(".main-content").classList.add("hidden");
+    document.querySelector(".fileOutput").classList.add("show");
   } catch (error) {
     console.error(`Error fetching repository: ${error}`);
     document.querySelector(".alert-container").style.display = "block";
