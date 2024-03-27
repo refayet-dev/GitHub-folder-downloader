@@ -39,7 +39,7 @@ button.addEventListener("click", async (e) => {
     document.querySelector(".alert-container").style.display = "block";
     return;
   }
-  console.log(gitRepoUrl);
+  console.log(gitRepoUrl, "git repository inputed");
   document.querySelector(".main-content").classList.add("hidden");
   document.querySelector(".fileOutput").classList.add("show");
   await fileDisplay(gitRepoUrl);
