@@ -182,9 +182,10 @@ body .main .fileOutput .fileOutputContainer .fileOutputHeader {
     overflow: hidden;
 }
 body .main .fileOutput .fileOutputContainer .fileOutputHeader .text-content-container {
+    backdrop-filter: blur(22.549999237060547px);
     max-width: 400px;
     padding: 3rem;
-    background: #616161;
+    background: #61616180;
     --notchSize: 110px;
     clip-path: polygon(0% var(--notchSize), var(--notchSize) 0%, calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% calc(100% - var(--notchSize)), calc(100% - var(--notchSize)) 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)));
 }
@@ -192,7 +193,7 @@ body .main .fileOutput .fileOutputContainer .fileOutputHeader .text-content-cont
     font-size: 18px;
     font-weight: 700;
     text-align: center;
-    -webkit-text-fill-color: #000;
+    -webkit-text-fill-color: #f4ec00;
     margin: 15px 0;
 }
 body .main .fileOutput .fileOutputContainer .fileOutputHeader .backButton-container .backFolder {
